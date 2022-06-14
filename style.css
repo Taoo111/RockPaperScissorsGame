@@ -10,11 +10,10 @@ html {
 
 body{
     font-family: 'Roboto', sans-serif;
-    background-color: #979ab4;
+    background-color: #f3d0d0;
 }
 
 .wrapper{
-    border: 2px solid black;
     max-width: 1080px;
     margin: 0 auto;
     height: 100vh;
