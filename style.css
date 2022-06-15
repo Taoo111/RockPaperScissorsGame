@@ -9,14 +9,16 @@ html {
   }
 
 body{
-    font-family: 'Roboto', sans-serif;
-    background-color: #f3d0d0;
+    font-family: 'Futura', 'Helvetica', 'Roboto', sans-serif;
+    background-color: #f0f3d2;
 }
 
 .wrapper{
-    max-width: 1080px;
     margin: 0 auto;
+    width: 80vw;
     height: 100vh;
+    max-width: 1920px;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 /* Choice Displays */
@@ -36,11 +38,22 @@ body{
 }
 
 .choiceDiv{
-    margin-top: 1.2rem;
+    margin-top: 4rem;
     margin-bottom: 1.2rem;
-    border: 2px solid white;
     width: 25vw;
     height: 35vh;
+}
+
+.playerImg{
+    background-image: url(img/paper.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.computerImg{
+    background-image: url(img/paper.png);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .pointCounter{

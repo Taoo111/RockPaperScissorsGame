@@ -5,6 +5,9 @@ const pointsCounterComputer = document.querySelector(".pointsCounterComputer");
 const pointsCounterPlayer = document.querySelector(".pointsCounterPlayer");
 const resultInfo = document.querySelector(".result-info");
 
+const playerImg = document.querySelector(".playerImg");
+const computerImg = document.querySelector(".computerImg");
+
 let playerChoice;
 let computerChoice;
 
@@ -15,6 +18,7 @@ let computersPoints = 0;
 const randomChoiceOfComputer = () => {
   computerChoice = Math.floor(Math.random() * 3);
   output = buttonChoices[computerChoice];
+  setImgOfComputer();
 };
 
 //Points Counter
@@ -39,7 +43,11 @@ const choiceOfPlayer = (e) => {
   computerChoiceDisplay.textContent = output.textContent;
   //compare the choices
   //Rock case
+
+  setImgOfPlayer();
+
   if (playerChoice === "rock") {
+
     if (output.id === "scissors") {
       resultInfo.textContent = "Player Won";
     } else if (output.id === "paper") {
@@ -98,6 +106,34 @@ const resetGame = () => {
   playersPoints = 0;
   computersPoints = 0;
 };
+
+//players img setter
+const setImgOfPlayer = () => {
+  if (playerChoice === "rock") {
+    playerImg.style.backgroundImage = "url(img/rock.png)"
+  }
+  else if(playerChoice === "paper"){
+    playerImg.style.backgroundImage = "url(img/paper.png)"
+  }
+  else if(playerChoice === "scissors"){
+    playerImg.style.backgroundImage = "url(img/scissors.png)"
+  }
+}
+
+//computers img setter
+const setImgOfComputer = () => {
+  if (output.id === "rock") {
+    computerImg.style.backgroundImage = "url(img/rock.png)"
+  }
+  else if(output.id === "paper"){
+    computerImg.style.backgroundImage = "url(img/paper.png)"
+  }
+  else if(output.id === "scissors"){
+    computerImg.style.backgroundImage = "url(img/scissors.png)"
+  }
+}
+
+
 
 buttonChoices.forEach((button) =>
   button.addEventListener("click", choiceOfPlayer)
