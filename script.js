@@ -8,8 +8,8 @@ const resultInfo = document.querySelector(".result-info");
 let playerChoice;
 let computerChoice;
 
-let playersPoints="";
-let computersPoints ="";
+let playersPoints = 0;
+let computersPoints = 0;
 
 //Random choice of computer
 const randomChoiceOfComputer = () => {
@@ -38,49 +38,66 @@ const choiceOfPlayer = (e) => {
 
   computerChoiceDisplay.textContent = output.textContent;
   //compare the choices
-  if ((playersPoints || computersPoints) !== 5) {
-    //Rock case
-    if (playerChoice === "rock") {
-      if (output.id === "scissors") {
-        resultInfo.textContent = "Player Won";
-      } else if (output.id === "paper") {
-        resultInfo.textContent = "Computer Won";
-      } else {
-        resultInfo.textContent = "Draw";
-      }
-      pointsCounter();
+  //Rock case
+  if (playerChoice === "rock") {
+    if (output.id === "scissors") {
+      resultInfo.textContent = "Player Won";
+    } else if (output.id === "paper") {
+      resultInfo.textContent = "Computer Won";
+    } else {
+      resultInfo.textContent = "Draw";
     }
-    //Paper case
-    else if (playerChoice === "paper") {
-      if (output.id === "scissors") {
-        resultInfo.textContent = "Computer Won";
-      } else if (output.id === "rock") {
-        resultInfo.textContent = "Player Won";
-      } else {
-        resultInfo.textContent = "Draw";
-      }
-      pointsCounter();
+    pointsCounter();
+  }
+  //Paper case
+  else if (playerChoice === "paper") {
+    if (output.id === "scissors") {
+      resultInfo.textContent = "Computer Won";
+    } else if (output.id === "rock") {
+      resultInfo.textContent = "Player Won";
+    } else {
+      resultInfo.textContent = "Draw";
     }
-    //scissors case
-    else if (playerChoice === "scissors") {
-      if (output.id === "paper") {
-        resultInfo.textContent = "Player Won";
-      } else if (output.id === "rock") {
-        resultInfo.textContent = "Computer Won";
-      } else {
-        resultInfo.textContent = "Draw";
-      }
-      pointsCounter();
+    pointsCounter();
+  }
+  //scissors case
+  else if (playerChoice === "scissors") {
+    if (output.id === "paper") {
+      resultInfo.textContent = "Player Won";
+    } else if (output.id === "rock") {
+      resultInfo.textContent = "Computer Won";
+    } else {
+      resultInfo.textContent = "Draw";
     }
-  } else if ((playersPoints || computersPoints) === 5) {
+    pointsCounter();
+  }
+  endOfTheGame();
+};
+
+//End the game on points equal to 5
+const endOfTheGame = () => {
+  //end of a game conditions
+  if (playersPoints === 6 || computersPoints === 6) {
     if (playersPoints === 5) {
       resultInfo.textContent = "Player Won the game";
     } else if (computersPoints === 5) {
       resultInfo.textContent = "Computer Won the game";
     }
+    //reset the game
+    resetGame();
   }
 };
 
+//reset the game function
+const resetGame = () => {
+  resultInfo.textContent = "";
+  playerChoiceDisplay.textContent = "";
+  computerChoiceDisplay.textContent = "";
+  pointsCounterComputer.textContent = "";
+  pointsCounterPlayer.textContent = "";
+  playersPoints = 0;
+  computersPoints = 0;
+};
 
 buttonChoices.forEach((button) =>
   button.addEventListener("click", choiceOfPlayer)
