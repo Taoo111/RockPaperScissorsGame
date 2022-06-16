@@ -1,12 +1,18 @@
-const buttonChoices = document.querySelectorAll("div button");
+const buttonChoices = document.querySelectorAll(".buttonsDiv button");
 const computerChoiceDisplay = document.querySelector(".computerChoiceDisplay");
 const playerChoiceDisplay = document.querySelector(".playerChoiceDisplay");
 const pointsCounterComputer = document.querySelector(".pointsCounterComputer");
 const pointsCounterPlayer = document.querySelector(".pointsCounterPlayer");
 const resultInfo = document.querySelector(".result-info");
 
+//Images containers
 const playerImg = document.querySelector(".playerImg");
 const computerImg = document.querySelector(".computerImg");
+//
+
+//End game popup elements
+const playAgain = document.getElementById("#playAgain");
+const popUpContainer = document.querySelector(".endGame-info")
 
 let playerChoice;
 let computerChoice;
@@ -91,6 +97,7 @@ const endOfTheGame = () => {
     } else if (computersPoints === 5) {
       resultInfo.textContent = "Computer Won the game";
     }
+    showPopUp();
     //reset the game
     resetGame();
   }
@@ -133,8 +140,13 @@ const setImgOfComputer = () => {
   }
 }
 
-
+//Show popup when the game is over
+const showPopUp = () => {
+  popUpContainer.style.display = "flex";
+}
 
 buttonChoices.forEach((button) =>
   button.addEventListener("click", choiceOfPlayer)
 );
+
+playAgain.addEventListener('click');

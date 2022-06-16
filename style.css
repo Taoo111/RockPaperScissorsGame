@@ -1,73 +1,162 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
-  }
-
-body{
-    font-family: 'Futura', 'Helvetica', 'Roboto', sans-serif;
-    background-color: #f0f3d2;
+  font-size: 62.5%;
 }
 
-.wrapper{
-    margin: 0 auto;
-    width: 80vw;
-    height: 100vh;
-    max-width: 1920px;
-    border: 1px solid rgb(0, 0, 0);
+body {
+  font-family: "Futura", "Helvetica", "Roboto", sans-serif;
+  background-color: #f0f3d2;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 80vw;
+  height: 100vh;
+  max-width: 1920px;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 /* Choice Displays */
 
-.displayContainer{
-    display: flex;
-    justify-content: space-around;
-    margin: 7rem 0;
+.displayContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 7rem 0;
 }
 
-.displayContainer p{
-    text-align: center;
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
+.displayContainer p {
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
-.choiceDiv{
-    margin-top: 4rem;
-    margin-bottom: 1.2rem;
-    width: 25vw;
-    height: 35vh;
+.choiceDiv {
+  margin-top: 4rem;
+  margin-bottom: 1.2rem;
+  width: 25vw;
+  height: 35vh;
 }
 
-.playerImg{
-    background-image: url(img/paper.png);
-    background-repeat: no-repeat;
-    background-size: contain;
+.playerImg {
+  background-image: url(img/paper.png);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.computerImg{
-    background-image: url(img/paper.png);
-    background-repeat: no-repeat;
-    background-size: contain;
+.computerImg {
+  background-image: url(img/paper.png);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.pointCounter{
-   margin-right: 2rem;
+.pointCounter {
+  margin-right: 2rem;
 }
 
 /* Buttons Section */
 
-.buttonsDiv{
-    display: flex;
-    justify-content: space-around;
-    margin: 15% 15%;
+.buttonsDiv {
+  display: flex;
+  justify-content: space-around;
+  margin: 15% 15%;
 }
 
-.buttonsDiv button{
-    padding: 1.8rem 2.5rem;
+.buttonsDiv button {
+  padding: 1.8rem 2.5rem;
+}
+
+/* End game Div styles */
+
+.endGame-info {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -85%);
+  background: rgb(146, 195, 173);
+  background: radial-gradient(
+    circle,
+    rgba(146, 195, 173, 1) 0%,
+    rgba(73, 109, 93, 1) 100%
+  );
+  border: 0.5rem solid #1b3d2f;
+  border-radius: 20px;
+  width: 24vw;
+  height: 30vh;
+}
+
+.endGame-info-result {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scoreInfo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#playAgain {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #6aac90 0,
+    #1b3d2f 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+#playAgain:focus {
+  box-shadow: #1b3d2f 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #1b3d2f 0 -3px 0 inset;
+}
+
+#playAgain:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #1b3d2f 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#playAgain:active {
+  box-shadow: #1b3d2f 0 3px 7px inset;
+  transform: translateY(2px);
 }
