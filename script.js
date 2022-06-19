@@ -14,6 +14,11 @@ const computerImg = document.querySelector(".computerImg");
 //End game popup elements
 const playAgain = document.getElementById("playAgain");
 const popUpContainer = document.querySelector(".endGame-info");
+//spans with the points on popup
+const playerResult = document.querySelector(".playerSumOfPoints");
+const computerResult = document.querySelector(".computerSumOfPoints");
+//span with information about winner of the game
+const winner = document.querySelector(".winnerSpan");
 
 let playerChoice;
 let computerChoice;
@@ -139,8 +144,20 @@ const setImgOfComputer = () => {
 //Popup functions
 
 //Show popup when the game is over , add blur effect to the background
+
+const informationsOnPopup = () => {
+  playerResult.textContent = playersPoints;
+  computerResult.textContent = computersPoints;
+  if (playersPoints > computersPoints) {
+    winner.textContent = "Player";
+  } else {
+    winner.textContent = "Computer";
+  }
+};``
+
 const showPopUp = () => {
   wrapper.classList.add("popup--active");
+  informationsOnPopup();
   popUpContainer.style.display = "flex";
 };
 
