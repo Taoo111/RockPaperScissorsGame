@@ -4,6 +4,7 @@ const playerChoiceDisplay = document.querySelector(".playerChoiceDisplay");
 const pointsCounterComputer = document.querySelector(".pointsCounterComputer");
 const pointsCounterPlayer = document.querySelector(".pointsCounterPlayer");
 const resultInfo = document.querySelector(".result-info");
+const wrapper = document.querySelector(".wrapper");
 
 //Images containers
 const playerImg = document.querySelector(".playerImg");
@@ -11,8 +12,8 @@ const computerImg = document.querySelector(".computerImg");
 //
 
 //End game popup elements
-const playAgain = document.getElementById("#playAgain");
-const popUpContainer = document.querySelector(".endGame-info")
+const playAgain = document.getElementById("playAgain");
+const popUpContainer = document.querySelector(".endGame-info");
 
 let playerChoice;
 let computerChoice;
@@ -53,7 +54,6 @@ const choiceOfPlayer = (e) => {
   setImgOfPlayer();
 
   if (playerChoice === "rock") {
-
     if (output.id === "scissors") {
       resultInfo.textContent = "Player Won";
     } else if (output.id === "paper") {
@@ -117,36 +117,40 @@ const resetGame = () => {
 //players img setter
 const setImgOfPlayer = () => {
   if (playerChoice === "rock") {
-    playerImg.style.backgroundImage = "url(img/rock.png)"
+    playerImg.style.backgroundImage = "url(img/rock.png)";
+  } else if (playerChoice === "paper") {
+    playerImg.style.backgroundImage = "url(img/paper.png)";
+  } else if (playerChoice === "scissors") {
+    playerImg.style.backgroundImage = "url(img/scissors.png)";
   }
-  else if(playerChoice === "paper"){
-    playerImg.style.backgroundImage = "url(img/paper.png)"
-  }
-  else if(playerChoice === "scissors"){
-    playerImg.style.backgroundImage = "url(img/scissors.png)"
-  }
-}
+};
 
 //computers img setter
 const setImgOfComputer = () => {
   if (output.id === "rock") {
-    computerImg.style.backgroundImage = "url(img/rock.png)"
+    computerImg.style.backgroundImage = "url(img/rock.png)";
+  } else if (output.id === "paper") {
+    computerImg.style.backgroundImage = "url(img/paper.png)";
+  } else if (output.id === "scissors") {
+    computerImg.style.backgroundImage = "url(img/scissors.png)";
   }
-  else if(output.id === "paper"){
-    computerImg.style.backgroundImage = "url(img/paper.png)"
-  }
-  else if(output.id === "scissors"){
-    computerImg.style.backgroundImage = "url(img/scissors.png)"
-  }
-}
+};
 
-//Show popup when the game is over
+//Popup functions
+
+//Show popup when the game is over , add blur effect to the background
 const showPopUp = () => {
+  wrapper.classList.add("popup--active");
   popUpContainer.style.display = "flex";
-}
+};
+
+const closePopUp = () => {
+  wrapper.classList.remove("popup--active");
+  popUpContainer.style.display = "none";
+};
 
 buttonChoices.forEach((button) =>
   button.addEventListener("click", choiceOfPlayer)
 );
 
-playAgain.addEventListener('click');
+playAgain.addEventListener("click", closePopUp);

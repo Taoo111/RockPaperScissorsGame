@@ -18,8 +18,21 @@ body {
   width: 80vw;
   height: 100vh;
   max-width: 1920px;
-  border: 1px solid rgb(0, 0, 0);
+  -webkit-filter: blur(0);
+          filter: blur(0);
+  opacity: 1;
+  -webkit-transition: opacity 100ms ease, -webkit-filter 100ms ease;
+  transition: opacity 100ms ease, -webkit-filter 100ms ease;
+  transition: filter 100ms ease, opacity2500ms ease;
+  transition: filter 100ms ease, opacity 100ms ease, -webkit-filter 100ms ease;
 }
+
+.popup--active{
+  -webkit-filter: blur(8px);
+          filter: blur(8px);
+  opacity: 1;
+}
+
 
 /* Choice Displays */
 
@@ -79,9 +92,9 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  position: relative;
+  position: fixed;
+  top: 50%;
   left: 50%;
-  bottom: 50%;
   transform: translate(-50%, -85%);
   background: rgb(146, 195, 173);
   background: radial-gradient(
@@ -93,6 +106,7 @@ body {
   border-radius: 20px;
   width: 24vw;
   height: 30vh;
+  transition: 0.2s;
 }
 
 .endGame-info-result {
@@ -125,7 +139,6 @@ body {
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: "JetBrains Mono", monospace;
   height: 48px;
   justify-content: center;
   line-height: 1;
