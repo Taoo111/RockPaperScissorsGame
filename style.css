@@ -31,6 +31,7 @@ body {
   -webkit-filter: blur(8px);
           filter: blur(8px);
   opacity: 1;
+  pointer-events: none;
 }
 
 
@@ -58,13 +59,13 @@ body {
 }
 
 .playerImg {
-  background-image: url(img/paper.png);
+  background-image: url(img/paper.svg);
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .computerImg {
-  background-image: url(img/paper.png);
+  background-image: url(img/paper.svg);
   background-repeat: no-repeat;
   background-size: contain;
 }

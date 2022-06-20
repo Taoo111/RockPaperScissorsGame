@@ -122,22 +122,22 @@ const resetGame = () => {
 //players img setter
 const setImgOfPlayer = () => {
   if (playerChoice === "rock") {
-    playerImg.style.backgroundImage = "url(img/rock.png)";
+    playerImg.style.backgroundImage = "url(img/rock.svg)";
   } else if (playerChoice === "paper") {
-    playerImg.style.backgroundImage = "url(img/paper.png)";
+    playerImg.style.backgroundImage = "url(img/paper.svg)";
   } else if (playerChoice === "scissors") {
-    playerImg.style.backgroundImage = "url(img/scissors.png)";
+    playerImg.style.backgroundImage = "url(img/scissors.svg)";
   }
 };
 
 //computers img setter
 const setImgOfComputer = () => {
   if (output.id === "rock") {
-    computerImg.style.backgroundImage = "url(img/rock.png)";
+    computerImg.style.backgroundImage = "url(img/rock.svg)";
   } else if (output.id === "paper") {
-    computerImg.style.backgroundImage = "url(img/paper.png)";
+    computerImg.style.backgroundImage = "url(img/paper.svg)";
   } else if (output.id === "scissors") {
-    computerImg.style.backgroundImage = "url(img/scissors.png)";
+    computerImg.style.backgroundImage = "url(img/scissors.svg)";
   }
 };
 
