@@ -169,6 +169,9 @@ const closePopUp = () => {
   popUpContainer.style.display = "none";
 };
 
+
+// Event listeners
+
 buttonChoices.forEach((button) =>
   button.addEventListener("click", choiceOfPlayer)
 );
