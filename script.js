@@ -25,6 +25,7 @@ let computerChoice;
 
 let playersPoints = 0;
 let computersPoints = 0;
+let poinstAtTheEnd = 3; //here u can change amount of points that define the end of the game
 
 //Random choice of computer
 const randomChoiceOfComputer = () => {
@@ -96,10 +97,10 @@ const choiceOfPlayer = (e) => {
 //End the game on points equal to 5
 const endOfTheGame = () => {
   //end of a game conditions
-  if (playersPoints === 6 || computersPoints === 6) {
-    if (playersPoints === 5) {
+  if (playersPoints === poinstAtTheEnd || computersPoints === poinstAtTheEnd) {
+    if (playersPoints === poinstAtTheEnd) {
       resultInfo.textContent = "Player Won the game";
-    } else if (computersPoints === 5) {
+    } else if (computersPoints === poinstAtTheEnd) {
       resultInfo.textContent = "Computer Won the game";
     }
     showPopUp();
@@ -117,6 +118,8 @@ const resetGame = () => {
   pointsCounterPlayer.textContent = "";
   playersPoints = 0;
   computersPoints = 0;
+  playerImg.style.backgroundImage = "url(img/paper.svg)";
+  computerImg.style.backgroundImage = "url(img/paper.svg)";
 };
 
 //players img setter
@@ -153,7 +156,7 @@ const informationsOnPopup = () => {
   } else {
     winner.textContent = "Computer";
   }
-};``
+};
 
 const showPopUp = () => {
   wrapper.classList.add("popup--active");

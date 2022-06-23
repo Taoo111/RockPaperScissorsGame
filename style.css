@@ -19,7 +19,7 @@ body {
   height: 100vh;
   max-width: 1920px;
   -webkit-filter: blur(0);
-          filter: blur(0);
+  filter: blur(0);
   opacity: 1;
   -webkit-transition: opacity 100ms ease, -webkit-filter 100ms ease;
   transition: opacity 100ms ease, -webkit-filter 100ms ease;
@@ -27,13 +27,12 @@ body {
   transition: filter 100ms ease, opacity 100ms ease, -webkit-filter 100ms ease;
 }
 
-.popup--active{
+.popup--active {
   -webkit-filter: blur(8px);
-          filter: blur(8px);
+  filter: blur(8px);
   opacity: 1;
   pointer-events: none;
 }
-
 
 /* Choice Displays */
 
@@ -45,7 +44,7 @@ body {
 
 .displayContainer p {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.8rem;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
@@ -74,16 +73,75 @@ body {
   margin-right: 2rem;
 }
 
+/* Result -> winner of the round */
+
+div.result {
+  font-size: 3rem;
+  text-align: center;
+}
+
+div.result span {
+  display: inline-block;
+  padding-top: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 40px 40px 40px 20px #76B947;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #76B947,
+      0 0 40px #76B947, 0 0 50px #76B947, 0 0 60px #76B947, 0 0 70px #76B947;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #94C973, 0 0 40px #94C973,
+      0 0 50px #94C973, 0 0 60px #94C973, 0 0 70px #94C973, 0 0 80px #94C973;
+  }
+}
+
 /* Buttons Section */
 
 .buttonsDiv {
   display: flex;
   justify-content: space-around;
-  margin: 15% 15%;
+  margin: 8% 15%;
 }
 
 .buttonsDiv button {
+  font-size: 1.5rem;
+  width: 13rem;
   padding: 1.8rem 2.5rem;
+  color: rgb(243, 243, 243);
+  background-image: linear-gradient(to right top, #1b3d2f, #3f5b47, #657a60, #8e9a7c, #b8bb9b);
+  font-weight: bold;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+}
+
+.buttonsDiv button:focus {
+  box-shadow: #1b3d2f 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #1b3d2f 0 -3px 0 inset;
+}
+
+.buttonsDiv button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #1b3d2f 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.buttonsDiv button:active {
+  box-shadow: #1b3d2f 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 /* End game Div styles */
@@ -107,7 +165,21 @@ body {
   border-radius: 20px;
   width: 24vw;
   height: 30vh;
-  transition: 0.2s;
+  animation: showPopup 1s ease;
+}
+
+@keyframes showPopup {
+  0% {
+    transform: translate(-50%, -85%) scale(0) rotate(360deg);
+  }
+
+  60% {
+    transform: translate(-50%, -85%) scale(0.8) rotate(-10deg);
+  }
+
+  100% {
+    transform: translate(-50%, -85%) scale(1) rotate(0deg);
+  }
 }
 
 .endGame-info-result {
@@ -136,7 +208,6 @@ body {
   border-radius: 6px;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
     rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
-  box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   display: inline-flex;
