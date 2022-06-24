@@ -111,7 +111,7 @@ const endOfTheGame = () => {
 
 //reset the game function
 const resetGame = () => {
-  resultInfo.textContent = "";
+  resultInfo.innerHTML = "&nbsp;";
   playerChoiceDisplay.textContent = "";
   computerChoiceDisplay.textContent = "";
   pointsCounterComputer.textContent = "";
